@@ -1,0 +1,65 @@
+swagger: '2.0' #versao do Swagger
+info: # Informacoes da API de alto nivel
+  description: Busca de cotação de Dolar Comercial #Descricao da API 
+  version: 1.0.0 #Versao da API
+  title: Cotacao Dolar # Titulo da API
+  license: #Informacao de licenca do Swagger
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: localhost # Nome do servidor
+basePath: /v1 #Caminho base quando ha varias versoes da API em execucao
+tags: # Informacoes de tag para cada operacao de API. Varias tags para varias operacoes de API
+  - name: dolar comercial #Nome da Tag
+    description: Cotacao do dolar comercial #Descricao da Tag de operacao da API
+schemes:
+  - http # seguranca
+paths:
+  '/obterCotacaoDolar/{data}': #Caminho do mapeamento da requisicao da API
+    get: #Tipo de metodo da requisicao, GET,POST etc.
+      tags: # Refere-se a tag criada acima
+        - cotacaoDolar
+      summary: Obter cotacao Dolar comercial por data #Sumario 
+      description: Retorna uma cotacao #Descricao da operacao da API
+      operationId: getDollarRate #Nome do metodo
+      produces:
+        - application/json #Tipo de conteudo da resposta
+      parameters:
+        - name: data #Parametro de entrada
+          in: path #Variavel do path
+          description: Data da cotacao #descricao do parametro
+          required: false #Obriggatoriedade
+          type: Date #tipo de dado
+          format: dd/MM/yyyy #formato do tipo de data
+      responses: # Resposta da API
+        '200': #Codigo de status de Sucesso
+          description: operacao bem sucedida #Successful status description
+          schema:
+            $ref: '#/definicoes/Cotacao' #Detalhes do objeto de resposta
+        '400': #Codigo de resposta mal sucedida
+          description: Data informada invalida #Descricao de resposta mal sucedida
+        '404': #Codigo de resposta mal sucedida
+          description: Cotacao nao encontrada #Descricao de resposta mal sucedida
+definitions: # Definicao de objeto
+  Employee: #Objeto Cotacao
+    type: object
+    properties: #Propriedades
+      id: #Id da requisicao
+        type: integer
+        format: int64
+      dataHoraRequisicao: #Data e Hora (timestamp) da requisição
+        type: Date
+        description: dd/MM/yyyy'T'HH:mm:ssXXX #descricao do formato da data
+      dataCotacao: #Data da cotacao
+        type: Date
+        description: dd/MM/yyyy #descricao do formato da data
+      compra: #valor de compra
+        type: monetario
+        description: R$###.##0,00 #descricao do formato da moeda
+      venda: #valor de venda
+        type: monetario
+        description: R$###.##0,00 #descricao do formato da moeda
+      dataHoraCotacao: #Data e Hora (timestamp) da cotacao
+        type: Date
+        description: dd/MM/yyyy'T'HH:mm:ssXXX #descricao do formato da data
+    json:
+      name: cotacao #elemento principal ao retornar o objeto no json 
