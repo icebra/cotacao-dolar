@@ -1,4 +1,4 @@
-package br.com.bb.cotacaodolar;
+package br.com.bb.cotacaodolar.controller;
 
 import io.quarkus.test.junit.NativeImageTest;
 
