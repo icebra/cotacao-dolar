@@ -79,6 +79,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter-engine</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
@@ -183,6 +188,25 @@
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-security</artifactId>
         </dependency>
+        
+        <dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/uk.co.szmg.grafana/grafana-dashboard-generator -->
+		<dependency>
+		    <groupId>uk.co.szmg.grafana</groupId>
+		    <artifactId>grafana-dashboard-generator</artifactId>
+		    <version>2.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.appnexus.grafana-client/grafana-api-java-client -->
+		<dependency>
+		    <groupId>com.appnexus.grafana-client</groupId>
+		    <artifactId>grafana-api-java-client</artifactId>
+		    <version>1.0.5</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${project.name}</finalName>

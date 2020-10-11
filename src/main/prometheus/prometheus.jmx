@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanAPI" testclass="TestPlan" testname="Test Plan" enabled="true">
+    </TestPlan>
+  </hashTree>
+</jmeterTestPlan>
